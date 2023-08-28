@@ -12,7 +12,7 @@ public class Empleados {
     private int id;
     private String nombre;
     private String apellido;
-    private String correoElectronico;
+    private String correo_electronico;
     private String puesto;
 
     // Constructores
@@ -23,7 +23,7 @@ public class Empleados {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correoElectronico = correoElectronico;
+        this.correo_electronico = correoElectronico;
         this.puesto = puesto;
     }
 
@@ -53,11 +53,11 @@ public class Empleados {
     }
 
     public String getCorreoElectronico() {
-        return correoElectronico;
+        return correo_electronico;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setCorreoElectronico(String correo_electronico) {
+        this.correo_electronico = correo_electronico;
     }
 
     public String getPuesto() {
@@ -75,7 +75,7 @@ public class Empleados {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", correoElectronico='" + correoElectronico + '\'' +
+                ", correoElectronico='" + correo_electronico + '\'' +
                 ", puesto='" + puesto + '\'' +
                 '}';
     }

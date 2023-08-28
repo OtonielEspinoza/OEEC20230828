@@ -15,11 +15,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class EmpleadosDAL {
 
     public static int crearEmpleado(Empleados empleado) throws SQLException {
         int result = 0;
-        String sql = "INSERT INTO Empleados (Nombre, Apellido, CorreoElectronico, Puesto) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Empleados (Nombre, Apellido, correo_electronico, Puesto) VALUES (?, ?, ?, ?)";
         try (Connection connection = ComunDB.obtenerConexion(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, empleado.getNombre());
             statement.setString(2, empleado.getApellido());
@@ -31,7 +32,7 @@ public class EmpleadosDAL {
     }
      public static int editarEmpleado(Empleados empleado) throws SQLException {
         int result = 0;
-        String sql = "UPDATE Empleados SET Nombre = ?, Apellido = ?, CorreoElectronico = ?, Puesto = ? WHERE id = ?";
+        String sql = "UPDATE Empleados SET Nombre = ?, Apellido = ?, correo_electronico = ?, Puesto = ? WHERE id = ?";
         try (Connection connection = ComunDB.obtenerConexion(); PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, empleado.getNombre());
             statement.setString(2, empleado.getApellido());
@@ -49,9 +50,27 @@ public class EmpleadosDAL {
         int id = resultSet.getInt("id");
         String nombre = resultSet.getString("Nombre");
         String apellido = resultSet.getString("Apellido");
-        String correoElectronico = resultSet.getString("CorreoElectronico");
+        String correoElectronico = resultSet.getString("correo_electronico");
         String puesto = resultSet.getString("Puesto");
         return new Empleados(id, nombre, apellido, correoElectronico, puesto);
     }
+
+  public static List<Empleados> obtenerEmpleados() throws SQLException {
+        List<Empleados> empleados = new ArrayList<>();
+        String sql = "SELECT * FROM Empleados";
+        
+        try (Connection connection = ComunDB.obtenerConexion();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                Empleados empleado = resultSetToEmpleado(resultSet);
+                empleados.add(empleado);
+            }
+        }
+        
+        return empleados;
+    }
+
+    
 }
 

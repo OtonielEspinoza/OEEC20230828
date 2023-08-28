@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1><%=request.getAttribute("confirmacion")%></h1>
-         <a href="Task" class="waves-effect waves-light btn blue">Aceptar</a>    
+         <a href="Empleados" class="waves-effect waves-light btn blue">Aceptar</a>    
     </body>
 </html>
