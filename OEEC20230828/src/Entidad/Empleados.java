@@ -9,8 +9,6 @@ package Entidad;
  * @author H
  */
 public class Empleados {
-    
-    public class Empleado {
     private int id;
     private String nombre;
     private String apellido;
@@ -18,10 +16,10 @@ public class Empleados {
     private String puesto;
 
     // Constructores
-    public Empleado() {
+    public Empleados() {
     }
 
-    public Empleado(int id, String nombre, String apellido, String correoElectronico, String puesto) {
+    public Empleados(int id, String nombre, String apellido, String correoElectronico, String puesto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -83,5 +81,3 @@ public class Empleados {
     }
 }
 
-    
-}
